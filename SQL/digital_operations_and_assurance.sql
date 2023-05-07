@@ -34,3 +34,9 @@ where (periode between '2023-01-01 00:00:00' AND '2023-04-30 23:59:59')
 group by 1,2,3,4
 order by 1,2
 
+#query for identify the customer with more than 1 tickets in a month for SooltanPay product
+SELECT ContactId, count(DISTINCT CaseNumber)
+FROM stg_sapu_jagad ssj
+where (CreatedDate between '2023-04-01 00:00:00' AND '2023-04-30 23:59:59') and Product__c = 'Sooltanpay'
+group by ContactId
+having count(ContactId) > 1

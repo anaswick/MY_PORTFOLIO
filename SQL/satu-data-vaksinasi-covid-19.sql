@@ -1,0 +1,83 @@
+#query for counting the number of people based on vaccination status
+
+SELECT STATUS_PEN, COUNT(*) FROM (
+SELECT NIK, CASE
+WHEN STATUS=4 THEN "SIAP VAKSIN"
+WHEN STATUS=6 THEN "SUDAH VAKSIN 1"
+WHEN STATUS=7 THEN "SUDAH VAKSIN 2"
+WHEN STATUS=8 THEN "BATAL VAKSIN"
+WHEN STATUS=9 THEN "TUNDA VAKSIN"
+WHEN STATUS=10 THEN "TUNDA VAKSIN 2"
+WHEN STATUS=11 THEN "BATAL VAKSIN 2"
+WHEN STATUS=14 THEN "SIAP VAKSIN 3"
+WHEN STATUS=16 THEN "SUDAH VAKSIN 3"
+ELSE "NULL"
+END STATUS_PEN FROM DATA_PENERIMA
+WHERE NIK in ()) #fill the blank national identity number
+
+#query for updating vaccine recipient category
+
+-- INSERT IGNORE T_KOREKSI_KODE_KATEGORI
+SELECT NIK ,NAMA_SASARAN,TANGGAL_LAHIR_SASARAN ,UMUR_SASARAN ,BATCH,'91' KODE_KATEGORI_BARU
+,KODE_KATEGORI KODE_KATEGORI_LAMA,"TEMP_UJI_KLINIS_20220201" NAMA_TABLE
+FROM DATA_PENERIMA WHERE NIK IN (
+SELECT NIK FROM TEMP_UJI_KLINIS_20220201)
+
+
+#query for inserting data into a table to be consume by a worker
+
+INSERT IGNORE INTO NIK_HASIL_VAKSIN2_BOOSTER
+SELECT A.NIK, B.NAMA_SASARAN, B.UMUR_SASARAN, A.TANGGAL_VAKSINASI TANGGAL_VAKSIN_2,A.ID_REFERENSI_VAKSIN ID_REFERENSI_VAKSIN_2,'0' IS_PBI,'UU' TYPE, B.KODE_KATEGORI, B.BATCH, NOW() CREATED_AT,
+'A', NOW() UPDATED_AT,B.TANGGAL_LAHIR_SASARAN TANGGAL_LAHIR_SASARAN
+FROM HASIL_VAKSIN_NIK A
+INNER JOIN DATA_PENERIMA B ON A.NIK=B.NIK
+LEFT join PARAM_FASKES C on A.KODE_FASKES=C.KODE_FASKES
+LEFT join REGISTRASI_VAKSIN D on A.NIK=D.NIK
+WHERE A.NIK IN ('') #fill the blank with national identity number
+AND D.TIKET_VAKSIN_C IS NULL
+AND B.STATUS !=16
+AND A.STATUS_VAKSIN = 2
+AND A.STATUS = 2
+and A.ID_REFERENSI_VAKSIN NOT IN ('P0023','000003') 
+AND TIMESTAMPDIFF(YEAR,B.TANGGAL_LAHIR_SASARAN,NOW())>=18
+and TIMESTAMPDIFF(DAY,A.TANGGAL_VAKSINASI,NOW())>90
+and LENGTH(A.NIK)=16
+and B.KODE_KATEGORI NOT IN ('51','91','62');
+
+#query for updating vaccination ticket into NULL, so I can recreate the ticket
+
+UPDATE REGISTRASI_VAKSIN rv
+SET TIKET_VAKSIN_C = NULL, UPDATED_AT = NOW(), TANGGAL_VAKSINASI_C = NULL
+WHERE NIK IN (‘’); #fill the blank with national identity number
+
+#query for determining how many vaccine phials needed per district and for datamart
+
+SELECT 
+NIK, 
+nama_sasaran ,
+jenis_kelamin ,
+tiket_vaksinasi ,
+ID_REFERENSI_VAKSIN ,
+NAMA_VAKSIN ,
+tanggal TANGGAL_VAKSINASI ,
+B.WAKTU_PEMBERIAN_DOSIS INTERVAL_VAKSIN,
+DATE_ADD(tanggal, INTERVAL B.WAKTU_PEMBERIAN_DOSIS  DAY) TANGGAL_VAKSIN_NEXT,
+DATEDIFF(tanggal_vaksin_next, CURDATE()) tanggal_vaksin_vs_hari_ini,
+id_provinsi_sasaran_faskes ,
+provinsi_sasaran_faskes,
+id_kabkota_sasaran_faskes ,
+kabkota_sasaran_faskes,
+left(nik,2) AS id_provinsi_ktp,
+left(nik,4) AS id_kabkota_ktp,
+kode_faskes ,
+kode_kategori ,
+usia AS rentang_umur,
+batch ,
+updated_at NOW
+from MASTER_DAILY_HASIL A 
+join MASTER_VAKSIN B 
+on A.ID_REFERENSI_VAKSIN = B.ID_VAKSIN 
+where A.vaksinasi = 'Dosis 1' 
+AND nik NOT IN (select nik from MASTER_DAILY_HASIL mdh2 where vaksinasi = 'Dosis 2') -- subquery bisa di buat tabel temporary 
+AND ID_REFERENSI_VAKSIN NOT IN ('ArCov005','000003','P0023','VCoV2-010221BF','Sf9','VAKSIN_LN','AdimrSC-2f','V01','VCoV2-CTBIO','ZF2001')
+AND TANGGAL_VAKSIN_NEXT  > CURDATE()

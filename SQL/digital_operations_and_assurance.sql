@@ -24,3 +24,13 @@ where (periode between '2023-04-01 00:00:00' AND '2023-04-30 23:59:59')
 and status in ('solved','closed')
 group by 1
 order by 2 DESC
+
+
+#monthly and daily ticket trend by product and symptom for period 1/1/2023 - 30/4/2023
+
+select left(periode,7) AS MONTH, left(periode,10) AS DATE, Product, Symptom, count(distinct CaseNumber) AS NO_OF_TICKET
+from dm_sapu_jagad dsj
+where (periode between '2023-01-01 00:00:00' AND '2023-04-30 23:59:59')
+group by 1,2,3,4
+order by 1,2
+

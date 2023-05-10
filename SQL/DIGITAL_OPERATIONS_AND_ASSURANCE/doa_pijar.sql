@@ -27,3 +27,9 @@ left join dm_all_ticket B
 on A.CaseNumber = B.TicketNo
 where (A.Periode between '2023-04-01 00:00:00' AND '2023-04-30 23:59:59') AND A.Product = 'Pijar Mahir'
 order by 2,3,4
+
+#query for retrieving number of ticket per user ID
+SELECT ContactId, Sub_Category__c, count(DISTINCT CaseNumber)
+FROM stg_sapu_jagad ssj
+where (CreatedDate between '2023-04-01 00:00:00' AND '2023-04-30 23:59:59') and Product__c = 'Pijar Mahir'
+group by 1,2

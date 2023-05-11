@@ -46,3 +46,25 @@ select Product__c, count(distinct CaseNumber)
 from stg_sapu_jagad ssj
 where (CreatedDate between '2023-04-01 00:00:00' AND '2023-04-30 23:59:59')
 group by 1
+
+
+#query for categorizing time to resolved
+SELECT 
+LEFT(Periode, 7) AS MONTH, 
+Periode, 
+CaseNumber, 
+Symptom, 
+ResolvedTime_Second / 3600 AS TTR_HOUR, 
+CASE 
+    WHEN ResolvedTime_Second/3600 < 3 THEN "< 3 JAM"
+    WHEN ResolvedTime_Second/3600 > 3 AND ResolvedTime_Second <= 6 THEN "3-6 JAM"
+    WHEN ResolvedTime_Second/3600 > 6 AND ResolvedTime_Second <= 12 THEN "6-12 JAM"
+    WHEN ResolvedTime_Second/3600 > 12 AND ResolvedTime_Second <= 24 THEN "12-24 JAM"
+    WHEN ResolvedTime_Second/3600 > 24 AND ResolvedTime_Second <= 48 THEN "24-48 JAM"
+    WHEN ResolvedTime_Second/3600 > 48 AND ResolvedTime_Second <= 72 THEN "48-72 JAM"
+    ELSE ">72 JAM" 
+END AS TTR_CATEGORY
+FROM dm_sapu_jagad dsj
+WHERE Periode BETWEEN '2023-01-01 00:00:00' AND '2023-04-30 23:59:59' 
+    AND Product = 'SooltanPay'
+ORDER BY 1, 2

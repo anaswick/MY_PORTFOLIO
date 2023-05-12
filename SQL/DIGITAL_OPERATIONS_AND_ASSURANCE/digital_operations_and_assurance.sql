@@ -68,3 +68,10 @@ FROM dm_sapu_jagad dsj
 WHERE Periode BETWEEN '2023-01-01 00:00:00' AND '2023-04-30 23:59:59' 
     AND Product = 'SooltanPay'
 ORDER BY 1, 2
+
+#CTE for Sooltanpay ticket
+WITH sooltanpay_ticket_0423 AS(
+select date(periode) AS Date, periode AS TicketDate, CaseNumber,Status,Symptom,ResolvedTime_Second  
+  from dm_sapu_jagad dsj where Product = 'Sooltanpay' 
+and Periode between '2023-04-01' AND '2023-04-30')
+select * from sooltanpay_ticket_0423;

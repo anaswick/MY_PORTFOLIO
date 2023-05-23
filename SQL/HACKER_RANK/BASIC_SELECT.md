@@ -47,7 +47,7 @@ Input Format
 
 The STATION table is described as follows:
 
-![Uploading weather observation 7.jpg…]()
+![weather observation 6](https://github.com/anaswick/my_portfolio/assets/24541471/d157be95-6f29-4413-858b-b2b66ef0dea9)
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ```

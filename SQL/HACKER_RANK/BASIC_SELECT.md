@@ -88,5 +88,12 @@ The Employee table containing employee data for a company is described as follow
 
 ![employee names](https://github.com/anaswick/my_portfolio/assets/24541471/00bd012c-f95a-47c6-98f6-22ed36ee94fa)
 
-
 ![employee names input](https://github.com/anaswick/my_portfolio/assets/24541471/aadaff7e-b6dc-47a7-a1ff-3da7c609aa63)
+
+#### Query
+```
+SELECT NAME
+FROM EMPLOYEE
+ORDER BY NAME;
+```
+

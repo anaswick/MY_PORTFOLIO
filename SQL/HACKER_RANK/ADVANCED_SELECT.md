@@ -79,3 +79,55 @@ SELECT COMPANY_CODE, FOUNDER,
 FROM COMPANY C
 ORDER BY COMPANY_CODE;
 ```
+
+### Occupations
+---
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+
+Input Format
+
+The OCCUPATIONS table is described as follows:
+
+![occupations](https://github.com/anaswick/my_portfolio/assets/24541471/e19da0f8-71ab-4554-a551-e48fad816bbf)
+
+Occupation will only contain one of the following values: Doctor, Professor, Singer or Actor.
+
+Sample Input
+
+![sample input occupations](https://github.com/anaswick/my_portfolio/assets/24541471/50f08c73-b340-43ca-84a6-fb02c868a928)
+
+
+Explanation
+
+The first column is an alphabetically ordered list of Doctor names. <br>
+The second column is an alphabetically ordered list of Professor names. <br>
+The third column is an alphabetically ordered list of Singer names. <br>
+The fourth column is an alphabetically ordered list of Actor names. <br>
+The empty cell data for columns with less than the maximum number of names per occupation (in this case, the Professor and Actor columns) are filled with NULL values. <br>
+
+```
+select
+    Doctor,
+    Professor,
+    Singer,
+    Actor
+from (
+
+    select
+        NameOrder,
+        max(case Occupation when 'Doctor' then Name end) as Doctor,
+        max(case Occupation when 'Professor' then Name end) as Professor,
+        max(case Occupation when 'Singer' then Name end) as Singer,
+        max(case Occupation when 'Actor' then Name end) as Actor
+    from (
+            select
+                Occupation,
+                Name,
+                row_number() over(partition by Occupation order by Name ASC) as NameOrder
+            from Occupations
+         ) as NameLists
+    group by NameOrder
+    ) as Names
+ ```

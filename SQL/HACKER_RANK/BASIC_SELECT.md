@@ -1,6 +1,6 @@
-Platform : Hacker Rank
-Difficulty : Easy
-Skill Tested : SQL
+## Platform : Hacker Rank
+## Difficulty : Easy
+## Skill Tested : SQL
 
 Every SQL queries I wrote is MySQL queries
 

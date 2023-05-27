@@ -257,3 +257,21 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 SELECT ROUND(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS(MIN(LONG_W)- MAX(LONG_W)),4)
 FROM STATION;
 ```
+## Weather Observation Station 19
+
+Consider P1(a,c) and P2(b,d) to be two points on a 2D plane where a,b are the respective minimum and maximum values of Northern Latitude (LAT_N) and  c,d are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+
+Query the Euclidean Distance between points  and  and format your answer to display  decimal digits.
+
+Input Format
+
+The STATION table is described as follows:
+
+![weather observation 2](https://github.com/anaswick/my_portfolio/assets/24541471/ab27944a-247f-4fef-8edb-3bf4a2ed59f9)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```
+SELECT ROUND(SQRT(POWER(ABS(MIN(LAT_N) - MAX(LAT_N)), 2) + POWER(ABS(MIN(LONG_W) - MAX(LONG_W)), 2)), 4)
+FROM STATION;
+```

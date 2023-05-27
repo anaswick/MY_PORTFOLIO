@@ -271,7 +271,52 @@ The STATION table is described as follows:
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
+#### Query
 ```
 SELECT ROUND(SQRT(POWER(ABS(MIN(LAT_N) - MAX(LAT_N)), 2) + POWER(ABS(MIN(LONG_W) - MAX(LONG_W)), 2)), 4)
 FROM STATION;
 ```
+## Weather Observation Station 20
+
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![weather observation 2](https://github.com/anaswick/my_portfolio/assets/24541471/ab27944a-247f-4fef-8edb-3bf4a2ed59f9)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+#### Query
+```
+SET @row_index := -1; -- this is for setting index start from -1 when you didn't modify it
+
+SELECT ROUND(LAT_N,4)
+FROM (
+    SELECT @row_index:=@row_index + 1 AS row_index, LAT_N
+    FROM STATION
+    ORDER BY LAT_N
+  ) AS subq
+  WHERE subq.row_index 
+  IN (FLOOR(@row_index / 2) , CEIL(@row_index / 2));
+  ```
+
+*Query Breakdown*
+
+SET @row_index := -1; -- this is for setting index start from -1 when you didn't modify it
+The MySQL code you provided is a variable assignment statement. In this case, it sets the value of the user-defined variable @row_index to -1.<br>
+Variables in MySQL are used to store values that can be referenced and manipulated within a session or a script. They are preceded by the "@" symbol, such as @row_index in this case.<br>
+The SET statement is used to assign a value to a variable. In your code, @row_index is being assigned the value -1. This means that @row_index will hold the value -1 until it is modified or the session ends.<br>
+User-defined variables can be useful in MySQL for storing intermediate results, performing calculations, or controlling the flow of a script or query. They can be referenced and used in subsequent SQL statements within the same session or script.<br>
+
+SELECT @row_index:=@row_index + 1 AS row_index
+The MySQL code you provided is a SELECT statement that assigns a new value to the user-defined variable @row_index and retrieves the updated value in the result set.<br>
+Let's break down the code:
+@row_index is a user-defined variable that holds a numeric value. It is being used to keep track of a row index. <br>
+:= is the assignment operator in MySQL. It assigns the value on the right side of the operator to the variable on the left side. In this case, @row_index is assigned the value of @row_index + 1.<br>
+@row_index + 1 increments the value of @row_index by 1. The new value is then assigned back to @row_index.<br>
+AS row_index is an alias given to the result of the assignment. It means that the column displaying the updated value will be labeled as "row_index" in the result set.<br>
+The SELECT statement retrieves the updated value of @row_index as "row_index" in the result set. This can be useful when you want to generate a row index or a sequential number for each row in a query result.<br>
+Note that the code you provided assumes that the @row_index variable has been previously assigned a value using SET @row_index := -1; or through some other means.<br>
+

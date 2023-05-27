@@ -302,15 +302,17 @@ FROM (
   IN (FLOOR(@row_index / 2) , CEIL(@row_index / 2));
   ```
 
-*Query Breakdown*
+**Query Breakdown**
 
-SET @row_index := -1; -- this is for setting index start from -1 when you didn't modify it
+**SET @row_index := -1; -- this is for setting index start from -1 when you didn't modify it**<br>
+
 The MySQL code you provided is a variable assignment statement. In this case, it sets the value of the user-defined variable @row_index to -1.<br>
 Variables in MySQL are used to store values that can be referenced and manipulated within a session or a script. They are preceded by the "@" symbol, such as @row_index in this case.<br>
 The SET statement is used to assign a value to a variable. In your code, @row_index is being assigned the value -1. This means that @row_index will hold the value -1 until it is modified or the session ends.<br>
 User-defined variables can be useful in MySQL for storing intermediate results, performing calculations, or controlling the flow of a script or query. They can be referenced and used in subsequent SQL statements within the same session or script.<br>
 
-SELECT @row_index:=@row_index + 1 AS row_index
+**SELECT @row_index:=@row_index + 1 AS row_index**<br>
+
 The MySQL code you provided is a SELECT statement that assigns a new value to the user-defined variable @row_index and retrieves the updated value in the result set.<br>
 Let's break down the code:
 @row_index is a user-defined variable that holds a numeric value. It is being used to keep track of a row index. <br>

@@ -46,7 +46,7 @@
 
 ![12](https://github.com/anaswick/my_portfolio/assets/24541471/73b4888b-da23-4b30-9a60-6a70d1de9e96)
 
-
+9. Close and apply.
 
 
 

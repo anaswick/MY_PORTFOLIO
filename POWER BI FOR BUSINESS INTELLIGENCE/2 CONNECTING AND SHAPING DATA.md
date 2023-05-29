@@ -88,3 +88,9 @@ The transform tab include tools to modify existing columns (splitting/grouping, 
 The add column tools create new columns (based on conditional rules, text operations, calculations, dates, etc)
 
 ![3 query editing tools - add columns](https://github.com/anaswick/my_portfolio/assets/24541471/5d38a0ca-e4a6-44ea-8cd8-5ec5a01ae298)
+
+# BASIC STEPS AFTER LOADING DATASET
+
+1. Rename the data source / table name
+2. Make sure each features is in the right data type
+

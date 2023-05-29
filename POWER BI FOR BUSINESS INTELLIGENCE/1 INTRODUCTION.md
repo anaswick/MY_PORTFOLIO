@@ -17,3 +17,8 @@ All you've been given is a **folder of raw csv files**, which contain informatio
 3. created calculated columns and measures with DAX
 4. Design an interactive dashboard to visualize the data
 
+# POWER BI
+
+Microsoft Power BI is a self-service business intelligence platform, which includes both desktop and web-based applications for connecting, modeling, and visualizing data.
+
+[Power BI Website](www.powerbi.microsoft.com)

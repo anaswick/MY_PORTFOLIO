@@ -36,6 +36,10 @@ Tip : use **Trim** to eliminate leading & trailing spaces, or **clean** to remov
 
 ![8](https://github.com/anaswick/my_portfolio/assets/24541471/119e9aff-7613-4480-95db-9eda7f3701df)
 
+9. You can rename each applied steps name for better understanding, in case you forgot what you have done.
+
+
+
 
 
 

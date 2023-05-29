@@ -93,4 +93,5 @@ The add column tools create new columns (based on conditional rules, text operat
 
 1. Rename the data source / table name
 2. Make sure each features is in the right data type
+3. Remove unnecessary column / feature
 

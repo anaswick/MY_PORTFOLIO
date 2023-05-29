@@ -69,3 +69,22 @@ Click on Transform Data
 **Applied steps**
 
 ![power query editor - applied steps](https://github.com/anaswick/my_portfolio/assets/24541471/078f4227-cc7a-4034-87e5-42d3ace48f62)
+
+**Table preview**
+
+![power query editor - table preview](https://github.com/anaswick/my_portfolio/assets/24541471/b701b439-f6a3-41ee-8b42-b8f5ff3f5f5a)
+
+**Query editing tools - Home**
+The home tabs includes general settings and common table transformation tools.
+
+![1 query editing tools - home](https://github.com/anaswick/my_portfolio/assets/24541471/5e498c73-5d5e-489f-9300-3e63997c483a)
+
+**Query editing tools - Transform**
+The transform tab include tools to modify existing columns (splitting/grouping, transposing, extracting text, etc)
+
+![2 query editing tools - transform](https://github.com/anaswick/my_portfolio/assets/24541471/d3d9d50f-43fd-4aaa-8b1a-c681464bd9bc)
+
+**Query editing tools - Add Column**
+The add column tools create new columns (based on conditional rules, text operations, calculations, dates, etc)
+
+![3 query editing tools - add columns](https://github.com/anaswick/my_portfolio/assets/24541471/5d38a0ca-e4a6-44ea-8cd8-5ec5a01ae298)

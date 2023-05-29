@@ -48,4 +48,11 @@ Build professional-quality reports and dashboards with best-in-class visualizati
 Power BI is the industry leader in self-service BI, and the skills you build in this course will be highly transferrable.
 
 
+## POWER BI WORKFLOW
 
+1. Data is loaded & transformed i the **Power Query Editor**
+2. Data models are configured in the **Model View**
+3. Table features & calculations are added in the **Data View**
+4. Visuals and reports are designed in the **Report View**
+
+Power Query Editor --> Model View --> Data View --> Report View

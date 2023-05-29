@@ -27,6 +27,23 @@
 
 ![4 sku type](https://github.com/anaswick/my_portfolio/assets/24541471/2848b589-be63-4da6-87a6-fb675b278f43)
 
+type "-" and don't forget to rename the new colum with **SKU Type**
 
+5. Update the **SKU Type**
+
+![5 step 1](https://github.com/anaswick/my_portfolio/assets/24541471/b88a9939-afaa-48ee-8365-554a1017bfe6)
+
+![5 step 2](https://github.com/anaswick/my_portfolio/assets/24541471/b4fa4f8d-4456-48db-8395-8fd100d00c64)
+
+![5 step 3](https://github.com/anaswick/my_portfolio/assets/24541471/76eae31f-8698-42bb-bb0a-51b3fdfb150d)
+
+6. Update zeros in **Product Style** with **NA**
+
+![6 step](https://github.com/anaswick/my_portfolio/assets/24541471/41f814c3-d4a1-43d3-b600-2a68af9a7950)
+
+
+**Final Result**
+
+![7 voila](https://github.com/anaswick/my_portfolio/assets/24541471/3a6bf16d-b5d3-49d1-b83e-1c0ccf55a2cd)
 
 

@@ -35,3 +35,37 @@ Front-end including :
 3. Design reports to visualize the data and create interactive, dynamic dashboards.
 4. Publish & share your Power BI workbooks using Power BI Service (cloud application)
 
+## TYPES OF DATA CONNECTORS
+
+Power BI can connect to virtually any type of source data, including (but not limited to):
+- **Flat files & folders** (csv, text, xlsx, etc)
+- **Databases** (SQL, Access, Oracle, IBM, etc)
+- **Azure** (Azure SQL, Analysis Services, Databricks, etc)
+- **Online Services** (SharePoint, GitHub, Dynamics 365, Google Analytics, Salesforce, Power BI Service, etc)
+- **Other** (Web feeds, R scripts, Spark, Hadoop, etc)
+
+## POWER QUERY EDITOR
+
+Click on Transform Data
+
+![power query editor](https://github.com/anaswick/my_portfolio/assets/24541471/539b3de1-d5eb-4fed-9e59-1b07232bc551)
+
+**Query Editing Tools**
+
+![power query editor - query editing tools](https://github.com/anaswick/my_portfolio/assets/24541471/1e0f1784-a71d-4497-b4ab-c19003c5cce1)
+
+**Formula Bar**
+
+![power query editor - fomula bar m code](https://github.com/anaswick/my_portfolio/assets/24541471/e4b36b53-8128-4883-876b-aedf783901a0)
+
+**Queries Pane**
+
+![power query editor - queries pane](https://github.com/anaswick/my_portfolio/assets/24541471/50403cbc-0552-4ded-87c2-4837d62f32f0)
+
+**Table names & properties**
+
+![power query editor - table names and properties](https://github.com/anaswick/my_portfolio/assets/24541471/821fc6d7-6578-4432-89e1-2b707780cc99)
+
+**Applied steps**
+
+![power query editor - applied steps](https://github.com/anaswick/my_portfolio/assets/24541471/078f4227-cc7a-4034-87e5-42d3ace48f62)

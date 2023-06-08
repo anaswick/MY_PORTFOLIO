@@ -12,7 +12,7 @@ This is all of the tables that we had loaded before, this is not a model yet
 
 ![2](https://github.com/anaswick/my_portfolio/assets/24541471/2fe96d24-461d-4f57-b701-55a24ee059d2)
 
-We will try to pivot it.<br?
+We will try to pivot it.<br>
 When we use values and field from the same tables, it works just fine. 
 
 ![3](https://github.com/anaswick/my_portfolio/assets/24541471/e0162446-c098-484d-b0d5-b7bd36538dde)

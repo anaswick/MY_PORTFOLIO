@@ -38,6 +38,39 @@ Click New then
 
 ![8](https://github.com/anaswick/my_portfolio/assets/24541471/803710de-24d7-44cb-8725-9110a74af131)
 
+6. We can also do this with the option one, please drag **TerritoryKey** from Sales data to Territory Lookup, and done
+
+![9](https://github.com/anaswick/my_portfolio/assets/24541471/285cc62c-af38-4f7c-a061-61b20286403f)
+
+
+7. Next we will connect Sales Data with Calendar Lookup, just drag **Order Date** from Sales Data to **Date** from Calendar Lookup.
+
+![10](https://github.com/anaswick/my_portfolio/assets/24541471/4f3a1c82-f45f-4cac-bc18-bbf5fc71f8cc)
+
+8. Next we will connect Sales Data with Product Lookup, just drag **ProductKey** from Sales Data to **ProductKey** from Product Lookup.
+
+![11](https://github.com/anaswick/my_portfolio/assets/24541471/bf68fa1c-92ae-416b-9a37-2c46f22604d4)
+
+Now the error on our previous Pivot Table is solved
+
+![12](https://github.com/anaswick/my_portfolio/assets/24541471/266375e2-3d77-4468-b043-dc867b5b8135)
+
+
+9. Voila, it's done
+
+![13](https://github.com/anaswick/my_portfolio/assets/24541471/5143ec99-c478-4ea5-ac77-d60c689ef790)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

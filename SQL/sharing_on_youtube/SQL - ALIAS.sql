@@ -78,4 +78,4 @@ join film_category fc
 on f.film_id = fc.film_id 
 join category c
 on fc.category_id = c.category_id
-where f.length >= 60) as film_data
+where f.length >= 60) as film_data_60

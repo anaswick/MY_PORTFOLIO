@@ -1,4 +1,4 @@
-![image](https://github.com/anaswick/my_portfolio/assets/24541471/52855ad0-9235-41fa-972d-ec505fee3229)# 010 Weather Observation 5
+# 010 Weather Observation 5
 
 Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
 

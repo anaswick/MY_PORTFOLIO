@@ -48,13 +48,31 @@ SELECT
             WHEN priority = 'medium' AND MTTRep_Minute < 360 THEN 1
             WHEN priority = 'high' AND MTTRep_Minute < 720 THEN 1
             ELSE 0
-        END) AS compliant_tickets,
-		COUNT(*) AS total_tickets,
-(compliant_tickets / total_tickets) *100 'SLA COMPLIANCE RATE'
+        END) AS TIKET_COMPLY,
+		COUNT(*) AS TIKET_TOTAL,
+round((TIKET_COMPLY / TIKET_TOTAL) *100,2) 'SLA COMPLIANCE RATE'
 FROM 
 dm_oca
 where ticket_created between '2023-10-01 00:00:00' and '2024-01-31 23:59:59' 
 GROUP BY 
 product
-order by total_tickets DESC;
+order by TIKET_TOTAL DESC;
 ;
+
+-- SLA COMPLIANCE 3 BULAN TERAKHR
+SELECT 
+left(ticket_created,7) BULAN,
+    SUM(CASE 
+            WHEN priority = 'low' AND MTTRep_Minute < 60 THEN 1
+            WHEN priority = 'medium' AND MTTRep_Minute < 360 THEN 1
+            WHEN priority = 'high' AND MTTRep_Minute < 720 THEN 1
+            ELSE 0
+        END) AS TIKET_COMPLY,
+		COUNT(*) AS TIKET_TOTAL,
+round((TIKET_COMPLY / TIKET_TOTAL) *100,2) 'SLA COMPLIANCE RATE'
+FROM 
+dm_oca
+where ticket_created between '2023-10-01 00:00:00' and '2024-01-31 23:59:59' and product = 'IndibizPay'
+GROUP BY 
+BULAN
+order by BULAN;

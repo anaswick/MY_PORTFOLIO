@@ -76,3 +76,29 @@ where ticket_created between '2023-10-01 00:00:00' and '2024-01-31 23:59:59' and
 GROUP BY 
 BULAN
 order by BULAN;
+
+
+-- COMPLIANCE RATE BY SYMPTOM
+
+SELECT 
+    sub_category,
+    SUM(CASE 
+            WHEN priority = 'low' AND MTTRep_Minute < 60 THEN 1
+            WHEN priority = 'medium' AND MTTRep_Minute < 180 THEN 1
+            WHEN priority = 'high' AND MTTRep_Minute < 720 THEN 1
+            ELSE 0
+        END) AS compliant_tickets,
+    COUNT(*) AS total_tickets,
+    SUM(CASE 
+            WHEN priority = 'low' AND MTTRep_Minute < 60 THEN 1
+            WHEN priority = 'medium' AND MTTRep_Minute < 180 THEN 1
+            WHEN priority = 'high' AND MTTRep_Minute < 720 THEN 1
+            ELSE 0
+        END) / COUNT(*) * 100 AS compliance_rate
+FROM 
+dm_oca
+where ticket_created between '2024-01-01 00:00:00' and '2024-01-31 23:59:59' and product = 'Indibizpay'
+GROUP BY 
+sub_category
+order by total_tickets DESC
+;
